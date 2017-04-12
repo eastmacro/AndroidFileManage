@@ -9,8 +9,6 @@ import android.util.Log;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.tapadoo.alerter.Alerter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,15 +46,15 @@ public class MainFragmentActivity extends baseActivity {
     @Override
     public void initViewAndEvent() {
         //6.0权限适配
-        requestReadAndWriteSDPermission(new baseActivity.PermissionHandler() {
-            @Override
-            public void onGranted() {
-                Alerter.create(MainFragmentActivity.this)
-                        .setTitle("通知")
-                        .setText("谢谢您打开权限！")
-                        .show();
-            }
-        });
+//        requestReadAndWriteSDPermission(new baseActivity.PermissionHandler() {
+//            @Override
+//            public void onGranted() {
+//                Alerter.create(MainFragmentActivity.this)
+//                        .setTitle("通知")
+//                        .setText("谢谢您打开权限！")
+//                        .show();
+//            }
+//        });
         Log.e("cwj", "外置SD卡路径 = " + FileUtil.getStoragePath(this));
         Log.e("cwj", "内置SD卡路径 = " + Environment.getExternalStorageDirectory().getAbsolutePath());
         Log.e("cwj", "手机内存根目录路径  = " + Environment.getDataDirectory().getParentFile().getAbsolutePath());
@@ -67,13 +65,13 @@ public class MainFragmentActivity extends baseActivity {
         main_top_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == top_rg_a.getId()) main_viewpager.setCurrentItem(0);
-                else if (checkedId == top_rg_b.getId()) main_viewpager.setCurrentItem(1);
+                if (checkedId == top_rg_a.getId()) main_viewpager.setCurrentItem(1);
+                else if (checkedId == top_rg_b.getId()) main_viewpager.setCurrentItem(0);
             }
         });
 
         //设置默认选中页
-        main_viewpager.setCurrentItem(0);
+        main_viewpager.setCurrentItem(1);
     }
 
     @Override
@@ -96,8 +94,8 @@ public class MainFragmentActivity extends baseActivity {
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AppCompatAlertDialogStyle);
         builder.setTitle("提示");
-        builder.setMessage("留下再体验一下？");
-        builder.setPositiveButton("好的", new DialogInterface.OnClickListener() {
+        builder.setMessage("确认退出？");
+        builder.setPositiveButton("点错了", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -105,7 +103,7 @@ public class MainFragmentActivity extends baseActivity {
             }
         });
 
-        builder.setNegativeButton("不要了", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("退出", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {

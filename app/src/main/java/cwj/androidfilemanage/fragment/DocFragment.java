@@ -124,13 +124,13 @@ public class DocFragment extends BaseFragment {
                                     SubItem PPTItem = new SubItem("PPT");
                                     SubItem textItem = new SubItem("TXT");
                                     for (int j = 0; j < fileInfos.size(); j++) {
-                                        if (FileUtil.checkSuffix(fileInfos.get(j).getFilePath(), new String[]{"doc", "docx", "dot"})) {
+                                        if (FileUtil.checkSuffix(fileInfos.get(j).getFilePath(), new String[]{"doc", "docx", "odt"})) {
                                             wordItem.addSubItem(fileInfos.get(j));
-                                        } else if (FileUtil.checkSuffix(fileInfos.get(j).getFilePath(), new String[]{"xls"})) {
+                                        } else if (FileUtil.checkSuffix(fileInfos.get(j).getFilePath(), new String[]{"xls","ods"})) {
                                             excelItem.addSubItem(fileInfos.get(j));
                                         } else if (FileUtil.checkSuffix(fileInfos.get(j).getFilePath(), new String[]{"pdf"})) {
                                             pdfItem.addSubItem(fileInfos.get(j));
-                                        } else if (FileUtil.checkSuffix(fileInfos.get(j).getFilePath(), new String[]{"ppt", "pptx"})) {
+                                        } else if (FileUtil.checkSuffix(fileInfos.get(j).getFilePath(), new String[]{"ppt", "pptx","odp"})) {
                                             PPTItem.addSubItem(fileInfos.get(j));
                                         } else if (FileUtil.checkSuffix(fileInfos.get(j).getFilePath(), new String[]{"txt"})) {
                                             textItem.addSubItem(fileInfos.get(j));

@@ -1,6 +1,12 @@
 <resources>
-    <string name="app_name">AndroidFileManage</string>
+    <string name="app_name">文件上传</string>
     <string name="size">已选%1$s</string>
-    <string name="send">发送(%1$s)</string>
+    <string name="send">上传(%1$s)</string>
     <string name="count">共%1$s个文件</string>
+
+    <string name="word">WORD文档</string>
+    <string name="excel">电子表格</string>
+    <string name="ppt">演示文稿</string>
+    <string name="txt">文本文件</string>
+    <string name="pdf">PDF文档</string>
 </resources>

@@ -27,7 +27,7 @@
                 android:button="@null"
                 android:checked="true"
                 android:gravity="center"
-                android:text="全部"
+                android:text="本机"
                 android:textColor="@drawable/top_r_text"
                 android:textColorHighlight="@color/color_48baf3"
                 android:textSize="14dp"/>
@@ -40,7 +40,7 @@
                 android:background="@drawable/top_r_bg"
                 android:button="@null"
                 android:gravity="center"
-                android:text="本机"
+                android:text="全部"
                 android:textColor="@drawable/top_r_text"
                 android:textColorHighlight="@color/color_48baf3"
                 android:textSize="14dp"/>

@@ -89,19 +89,19 @@ public class LocalMainFragment extends BaseFragment {
         tv_all_size.setText(getString(R.string.size, "0B"));
         tv_send.setText(getString(R.string.send, "0"));
         updateSizAndCount();
-        mTitleList.add("影音");
+        //mTitleList.add("影音");
         mTitleList.add("图片");
         mTitleList.add("文档");
-        mTitleList.add("其他");
+        //mTitleList.add("其他");
 
-        fragments.add(new AVFragment());
+        //fragments.add(new AVFragment());
         fragments.add(new PhotoFragment());
         fragments.add(new DocFragment());
-        fragments.add(new OtherFragment());
+        //fragments.add(new OtherFragment());
         TabPagerAdapter mAdapter = new TabPagerAdapter(getChildFragmentManager(), mTitleList, fragments);
         mViewPager.setAdapter(mAdapter);
         mViewPager.setCurrentItem(0);
-        mViewPager.setOffscreenPageLimit(4);
+        mViewPager.setOffscreenPageLimit(2);
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setTabsFromPagerAdapter(mAdapter);
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
