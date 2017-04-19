@@ -136,11 +136,11 @@ public class FileUtil {
         if (checkSuffix(fileName, new String[]{"mp3"})) {
             id = R.drawable.rc_ad_list_audio_icon;
 
-        } else if (checkSuffix(fileName, new String[]{"wmv", "rmvb", "avi", "mp4"})) {
-            id = R.drawable.rc_ad_list_video_icon;
-        } else if (checkSuffix(fileName, new String[]{"wav", "aac", "amr"})) {
-            id = R.drawable.rc_ad_list_video_icon;
-        }
+        }// else if (checkSuffix(fileName, new String[]{"wmv", "rmvb", "avi", "mp4"})) {
+           // id = R.drawable.rc_ad_list_video_icon;
+        //} else if (checkSuffix(fileName, new String[]{"wav", "aac", "amr"})) {
+          //  id = R.drawable.rc_ad_list_video_icon;
+       // }
 //        if (checkSuffix(fileName, mContext.getResources().getStringArray(R.array.rc_file_file_suffix)))
 //            id = R.drawable.rc_ad_list_file_icon;
 //        else if (checkSuffix(fileName, mContext.getResources().getStringArray(R.array.rc_video_file_suffix)))

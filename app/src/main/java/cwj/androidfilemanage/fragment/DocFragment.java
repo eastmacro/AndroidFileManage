@@ -101,8 +101,10 @@ public class DocFragment extends BaseFragment {
 
     private void ReadDOCFile() {
         List<File> m = new ArrayList<>();
-        m.add(new File(Environment.getExternalStorageDirectory() + "/tencent/"));
-        m.add(new File(Environment.getExternalStorageDirectory() + "/dzsh/"));
+        //m.add(new File(Environment.getExternalStorageDirectory() + "/tencent/"));
+        //m.add(new File(Environment.getExternalStorageDirectory() + "/dzsh/"));
+        m.add(new File(FileUtil.getStoragePath(getContext())));
+        m.add(new File(Environment.getExternalStorageDirectory()+"/"));
         Observable.from(m)
                 .flatMap(new Func1<File, Observable<File>>() {
                     @Override
@@ -118,11 +120,11 @@ public class DocFragment extends BaseFragment {
                             public void onCompleted() {
                                 progressDialog.dismiss();
                                 if (fileInfos.size() > 0) {
-                                    SubItem wordItem = new SubItem("WORD");
-                                    SubItem excelItem = new SubItem("EXCEL");
-                                    SubItem pdfItem = new SubItem("PDF");
-                                    SubItem PPTItem = new SubItem("PPT");
-                                    SubItem textItem = new SubItem("TXT");
+                                    SubItem wordItem = new SubItem("WORD文档");
+                                    SubItem excelItem = new SubItem("电子表格");
+                                    SubItem pdfItem = new SubItem("PDF电子文档");
+                                    SubItem PPTItem = new SubItem("演示文稿");
+                                    SubItem textItem = new SubItem("文本文件");
                                     for (int j = 0; j < fileInfos.size(); j++) {
                                         if (FileUtil.checkSuffix(fileInfos.get(j).getFilePath(), new String[]{"doc", "docx", "odt"})) {
                                             wordItem.addSubItem(fileInfos.get(j));
@@ -177,7 +179,7 @@ public class DocFragment extends BaseFragment {
             return Observable.just(f).filter(new Func1<File, Boolean>() {
                 @Override
                 public Boolean call(File file) {
-                    return f.exists() && f.canRead() && FileUtil.checkSuffix(f.getAbsolutePath(), new String[]{"doc", "docx", "dot", "xls", "pdf", "ppt", "pptx", "txt"});
+                    return f.exists() && f.canRead() && FileUtil.checkSuffix(f.getAbsolutePath(), new String[]{"doc", "docx", "odt", "xls", "ods", "pdf", "ppt", "odp", "pptx", "txt"});
                 }
             });
         }

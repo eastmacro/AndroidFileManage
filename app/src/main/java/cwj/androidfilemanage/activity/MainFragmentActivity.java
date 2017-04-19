@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -60,6 +62,7 @@ public class MainFragmentActivity extends baseActivity {
         Log.e("cwj", "手机内存根目录路径  = " + Environment.getDataDirectory().getParentFile().getAbsolutePath());
         fragments.add(new AllMainFragment());//全部
         fragments.add(new LocalMainFragment());//本机
+
         TabPagerAdapter pagerAdapter = new TabPagerAdapter(getSupportFragmentManager(), mTitleList, fragments);
         main_viewpager.setAdapter(pagerAdapter);
         main_top_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -82,6 +85,14 @@ public class MainFragmentActivity extends baseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        //填充菜单 第一个参数 我们要填充的menu配置, 第二个参数 填充到哪个menu
+        menuInflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

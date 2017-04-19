@@ -29,9 +29,9 @@ import cwj.androidfilemanage.utils.SystemUtil;
 public class AllMainFragment extends BaseFragment {
     @Bind(R.id.tv_all_size)
     TextView tv_all_size;
+
     @Bind(R.id.tv_send)
     TextView tv_send;
-
 
     @OnClick(R.id.rl_mobile_memory)
     void rl_mobile_memory() {
